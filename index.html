@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final exams</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header-section">
+      <h1 class="display-3">Buzake bidaswira pascal</h1>
+      <p class="lead">buzba</p>
+    </div>
+
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="d-flex flex-column photo-section">
+            <div class="row">
+              <div class="col-md-12">
+                <img
+                  id="profileImg"
+                  src="images/buzba.jpg"
+                  alt="Your Photo"
+                  class="img-fluid"
+                />
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-12 button-container">
+                <button
+                  onclick="prevPhoto()"
+                  class="btn btn-primary"
+                  id="prevBtn"
+                  disabled
+                >
+                  Previous Photo
+                </button>
+                <button
+                  onclick="nextPhoto()"
+                  class="btn btn-primary ml-2"
+                  id="nextBtn"
+                >
+                  Next Photo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex flex-column details-section">
+            <div class="row">
+              <div class="col-md-12">
+                <header>
+                  <h2>Your Name: BUZAKE BIDASHWIRA PASCAL</h2>
+                  <p>Registration No: 22/BCC/BU/R/0014</p>
+                  <p>Exam Pass No: 23SEM/BU/Exam2107</p>
+                  <p>Email: pascalbuzake@gmail.com</p>
+                  <p>Phone Contact:+256 726 129547</p>
+                </header>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="d-flex flex-column photo-section">
+            <p>Personal Website</p>
+            <a
+              href="https://pascalbzk.github.io/personnal-website/"
+              target="_blank"
+              class="card-link"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex flex-column details-section">
+            <div class="row">
+              <div class="col-md-12">
+                <p>Organizational Website</p>
+                <a
+                  href="https://pascalbzk.github.io/Ecommerce/"
+                  target="_blank"
+                  class="card-link"
+                  >Visit Site</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <p>Designed By: BUZAKE BIDASHWIRA PASCAL</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      var currentPhotoIndex = 0;
+      var photos = ["/images/tech1.jpg", "/images/tech2.jpg"];
+      var prevBtn = document.getElementById("prevBtn");
+      var nextBtn = document.getElementById("nextBtn");
+
+      function updateButtons() {
+        prevBtn.disabled = currentPhotoIndex === 0;
+        nextBtn.disabled = currentPhotoIndex === photos.length - 1;
+      }
+
+      function prevPhoto() {
+        currentPhotoIndex = Math.max(0, currentPhotoIndex - 1);
+        updatePhoto();
+        updateButtons();
+      }
+
+      function nextPhoto() {
+        currentPhotoIndex = Math.min(photos.length - 1, currentPhotoIndex + 1);
+        updatePhoto();
+        updateButtons();
+      }
+
+      function updatePhoto() {
+        var imgElement = document.getElementById("profileImg");
+        imgElement.src = photos[currentPhotoIndex];
+      }
+    </script>
+  </body>
+</html>
